@@ -83,7 +83,7 @@ sudo pacman -S --noconfirm discord
 sudo pacman -S --noconfirm zathura
 sudo pacman -S --noconfirm telegram
 sudo pacman -S --noconfirm flameshot
-yay -S spotify
+yay -S --noconfirm spotify
 log "Concluded gaming components"
 
 sleep 2
