@@ -1,27 +1,22 @@
 #!/bin/bash
 
-set -e
-USERNAME=$(whoami | tr -cd '[:alnum:]')
-echo "$(date): Starting placement script" >> simple-sys/logs/placement.log
+USERNAME=$(whoami)
 
-# moving to proper directories
-mv installation.sh ~/ >> simple-sys/logs/placement.log 2>&1
-mv simple-sys/pictures/* ~/ >> simple-sys/logs/placement.log 2>&1 || true
-mv simple-sys/fonts/* ~/ >> simple-sys/logs/placement.log 2>&1 || true
-
-echo "Concluded moving scripts and wallpaper."
-
+echo "Running placement.sh"
 sleep 2
 
 # config files for rice
 echo "Configuration files scheduled to be moved."
-[ -d ~/.config/i3 ] && rm -r ~/.config/i3
-mv "$USERNAME/simple-sys/config/i3" ~/.config/ >> simple-sys/logs/placement.log 2>&1
-[ -d ~/.config/polybar ] && rm -r ~/.config/polybar
-mv "$USERNAME/simple-sys/config/polybar" ~/.config/ >> simple-sys/logs/placement.log 2>&1
-[ -d ~/.config/rofi ] && rm -r ~/.config/rofi
-mv "$USERNAME/simple-sys/config/rofi" ~/.config/ >> simple-sys/logs/placement.log 2>&1
-echo "Configuration files moved successfully."
+mv config/i3 /home/$USERNAME/.config
+mv config/polybar /home/$USERNAME/.config
+mv config/rofi /home/$USERNAME/.config
+echo "Configuration files moved."
+
+if mv /simple-sys/fonts /home/$USER; then
+    echo "Font moved successful."
+else
+    echo "Font failed. Check permissions or directory existence."
+fi
 
 # conclusion
-echo "$(date): Placement script completed" >> simple-sys/logs/placement.log
+echo "Placement script completed"
