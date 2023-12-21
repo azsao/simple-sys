@@ -7,6 +7,8 @@ sleep 2
 
 # config files for rice
 echo "Configuration files scheduled to be moved."
+rm -r /home/$USERNAME/.config/i3
+sleep 2
 mv config/i3 /home/$USERNAME/.config
 mv config/polybar /home/$USERNAME/.config
 mv config/rofi /home/$USERNAME/.config
