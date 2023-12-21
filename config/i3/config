@@ -185,8 +185,7 @@ bindsym $mod+r mode "resize"
 
 
 # Polybar
-exec_always --no-startup-id killall -q polybar
-exec_always --no-startup-id polybar example --config="~/.config/polybar/config.ini"
+exec_always ./.config/polybar/launch.sh
 
 # Wallpaper
 exec_always --no-startup-id feh --bg-fill ~/pictures/wallpaper/default_wallpaper.jpg
