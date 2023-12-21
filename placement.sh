@@ -14,10 +14,16 @@ mv config/polybar /home/$USERNAME/.config
 mv config/rofi /home/$USERNAME/.config
 echo "Configuration files moved."
 
-if mv /simple-sys/fonts /home/$USER; then
+if mv /home/$USERNAME/simple-sys/fonts /home/$USER; then
     echo "Font moved successful."
 else
     echo "Font failed. Check permissions or directory existence."
+fi
+
+if mv /home/$USERNAME/simple-sys/pictures /home/$USER; then
+    echo "pictures moved successful."
+else
+    echo "pictures failed. Check permissions or directory existence."
 fi
 
 # conclusion
