@@ -12,6 +12,9 @@ sleep 2
 mv config/i3 /home/$USERNAME/.config
 mv config/polybar /home/$USERNAME/.config
 mv config/rofi /home/$USERNAME/.config
+mv config/kitty /home/$USERNAME/.config
+mv config/nvim /home/$USERNAME/.config
+
 echo "Configuration files moved."
 
 if mv /home/$USERNAME/simple-sys/fonts /home/$USER; then

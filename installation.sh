@@ -99,7 +99,15 @@ log "Issuing console components"
 sudo pacman -S --noconfirm fish
 sudo pacman -S --noconfirm neofetch
 sudo pacman -S --noconfirm nemo
+sudo pacman -S --noconfirm kitty
 log "Concluded console components"
+
+if grep -q '/usr/bin/fish' "/etc/shells"; then
+    sudo chsh -s /usr/bin/fish "$(whoami)"
+    log "Changed default shell to Fish"
+else
+    log "Fish shell not found in /etc/shells. Please check and update manually."
+fi
 
 # Special Components
 log "Issuing special components"
