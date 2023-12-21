@@ -98,14 +98,13 @@ log "Concluded visual components"
 log "Issuing console components"
 sudo pacman -S --noconfirm fish
 sudo pacman -S --noconfirm neofetch
-sudo pacman -S --noconfirm konsole
 sudo pacman -S --noconfirm nemo
 log "Concluded console components"
 
 # Special Components
 log "Issuing special components"
-cd /home
 sudo pacman -S --noconfirm polybar
+sudo pacman -S --noconfirm feh
 log "Concluded special components"
 
 # Codex Prompt 
@@ -114,7 +113,7 @@ read -p "Do you want to open Firefox and manually install a necessary font (Keep
 answer=$(echo "$answer" | tr '[:upper:]' '[:lower:]')
 
 if [ "$answer" == "y" ]; then
-    firefox https://www.dafont.com/coders-crux.font
+    firefox --new-window https://www.dafont.com/coders-crux.font
     log "Firefox is now open and redirected to font download."
 elif [ "$answer" == "n" ]; then
     log "You chose not to install the font."
