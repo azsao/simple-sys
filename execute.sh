@@ -1,11 +1,8 @@
 #!/bin/bash
 
-USERNAME=$USER
-USERNAME=$(echo "$USERNAME" | tr -cd '[:alnum:]')
 USER_HOME=$(getent passwd "$(whoami)" | cut -d: -f6)
-
-INSTALLATION="~/installation.sh"
-FONT="~/fonts/fonts.sh"
+INSTALLATION="$USER_HOME/simple-sys/installation.sh"
+FONT="$USER_HOME/simple-sys/fonts/fonts.sh"
 PLACEMENT="$USER_HOME/simple-sys/placement.sh"
 
 chmod +x "$INSTALLATION"
@@ -34,6 +31,5 @@ echo "Script concluded, requesting restart"
 
 read -p "Do you want to restart? (Y/N): " choice
 if [[ "$choice" =~ ^[Yy]$ ]]; then
-    echo "Initiating Restart"
     sudo reboot
 fi
