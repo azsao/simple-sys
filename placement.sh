@@ -14,7 +14,6 @@ mv config/polybar /home/$USERNAME/.config
 mv config/rofi /home/$USERNAME/.config
 mv config/kitty /home/$USERNAME/.config
 mv config/nvim /home/$USERNAME/.config
-mv config/picom /home/$USERNAME/.config
 
 echo "Configuration files moved."
 
